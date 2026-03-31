@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Igor Cau - Vegan Chef | Cooking classes, Ginger food truck, corporate catering e Leaf & Table private dining experience">
+    <title>Igor Cau - Vegan Chef</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #D4AF37;
+            --gold-dark: #B8941F;
+            --gold-light: #E8D4A0;
+            --dark: #1a1a1a;
+            --dark-soft: #2a2a2a;
+            --cream: #f5f1e8;
+            --cream-dark: #e8dcc8;
+            --orange: #FF8C42;
+            --green: #4A7C59;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-soft) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(74, 124, 89, 0.1) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(20px, 20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 0.9rem;
+            color: var(--gold-light);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.5rem;
+            color: var(--gold);
+            font-weight: 300;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: var(--cream);
+            margin-bottom: 40px;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            gap: 20px;
+
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: var(--dark);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gold);
+            color: var(--dark);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator::before {
+            content: '↓';
+            color: var(--gold);
+            font-size: 2rem;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 20px;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-subtitle {
+            font-size: 0.85rem;
+            color: var(--gold);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: var(--dark);
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        /* Services Section */
+        #servizi {
+            background: var(--cream);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+        }
+
+        .service-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .service-description {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .service-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        .service-features li {
+            padding: 8px 0;
+            color: #555;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .service-features li:last-child {
+            border-bottom: none;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            color: var(--gold);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* Ginger Special Section */
+        #ginger {
+            background: linear-gradient(135deg, var(--orange) 0%, #E67A32 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #ginger::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+            border-radius: 50%;
+        }
+
+        .ginger-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ginger-text h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 3px;
+        }
+
+        .ginger-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .ginger-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .ginger-feature {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .ginger-feature h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .ginger-feature p {
+            font-size: 0.9rem;
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        .ginger-image {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        /* About Section */
+        #chi-sono {
+            background: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            aspect-ratio: 3/4;
+            background: var(--cream);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: #999;
+        }
+
+        .about-text h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .about-text p {
+            color: #555;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Contact Section */
+        #contatti {
+            background: var(--dark);
+            color: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-method:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--gold);
+            width: 50px;
+            text-align: center;
+        }
+
+        .contact-details h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .contact-details a {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--gold-light);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            color: var(--white);
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-submit {
+            width: 100%;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-soft);
+            color: var(--cream);
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .social-links a {
+            color: var(--gold);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--gold-light);
+            transform: translateY(-3px);
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--dark);
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ginger-content {
+                grid-template-columns: 1fr;
+            }
+
+            .ginger-features {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">IGOR CAU</div>
+            <button class="nav-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#servizi">Servizi</a></li>
+                <li><a href="#ginger">Ginger</a></li>
+                <li><a href="#chi-sono">Chi Sono</a></li>
+                <li><a href="#contatti">Contatti</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-subtitle">Vegan Chef</p>
+            <h1 class="hero-title">IGOR CAU</h1>
+            <p class="hero-description">
+                Cucina vegetale d'autore per eventi, matrimoni, corporate catering e private dining experience
+            </p>
+            <div class="hero-cta">
+                <a href="#contatti" class="btn btn-primary">Richiedi Preventivo</a>
+                <a href="#servizi" class="btn btn-secondary">Scopri i Servizi</a>
+            </div>
+        </div>
+        <div class="scroll-indicator"></div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servizi">
+        <div class="section-container">
+            <div class="section-header">
+                <p class="section-subtitle">Cosa Offro</p>
+                <h2 class="section-title">I Miei Servizi</h2>
+            </div>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">🍽️</div>
+                    <h3 class="service-title">Leaf & Table</h3>
+                    <p class="service-description">
+                        Private dining experience a domicilio con mise en place completa
+                    </p>
+                    <ul class="service-features">
+                        <li>Menu degustazione 7 portate</li>
+                        <li>Wine pairing opzionale</li>
+                        <li>Mise en place inclusa</li>
+                        <li>6-12 persone</li>
+                    </ul>
+                    <a href="#contatti" class="btn btn-secondary">Prenota</a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">🚐</div>
+                    <h3 class="service-title">Ginger Food Truck</h3>
+                    <p class="service-description">
+                        Street food vegano gourmet per matrimoni, festival ed eventi
+                    </p>
+                    <ul class="service-features">
+                        <li>Vintage caravan 1984</li>
+                        <li>Menu personalizzabile</li>
+                        <li>Disponibile in tutta Italia</li>
+                        <li>Esperienza completa</li>
+                    </ul>
+                    <a href="#ginger" class="btn btn-secondary">Scopri Ginger</a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">🏢</div>
+                    <h3 class="service-title">Corporate Catering</h3>
+                    <p class="service-description">
+                        Catering aziendale per eventi, meeting e team building
+                    </p>
+                    <ul class="service-features">
+                        <li>Menu su misura</li>
+                        <li>Opzioni vegane e vegetariane</li>
+                        <li>Servizio professionale</li>
+                        <li>Qualsiasi dimensione evento</li>
+                    </ul>
+                    <a href="#contatti" class="btn btn-secondary">Richiedi Info</a>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">🍳</div>
+                    <h3 class="service-title">Cooking Classes</h3>
+                    <p class="service-description">
+                        Corsi di cucina vegetale e guest chef in ristoranti
+                    </p>
+                    <ul class="service-features">
+                        <li>Lezioni private e di gruppo</li>
+                        <li>Guest chef experience</li>
+                        <li>Tecniche professionali</li>
+                        <li>Ricette innovative</li>
+                    </ul>
+                    <a href="#contatti" class="btn btn-secondary">Prenota Corso</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ginger Section -->
+    <section id="ginger">
+        <div class="section-container">
+            <div class="ginger-content">
+                <div class="ginger-text">
+                    <h2>GINGER</h2>
+                    <p>
+                        Un vintage caravan del 1984 trasformato in food truck vegano gourmet. 
+                        Ginger porta street food d'autore ai festival, matrimoni ed eventi in tutta Italia.
+                    </p>
+                    <div class="ginger-features">
+                        <div class="ginger-feature">
+                            <h4>Festival & Eventi</h4>
+                            <p>Presenza regolare ai principali festival vegani italiani</p>
+                        </div>
+                        <div class="ginger-feature">
+                            <h4>Matrimoni</h4>
+                            <p>Street food gourmet per il tuo giorno speciale</p>
+                        </div>
+                        <div class="ginger-feature">
+                            <h4>Corporate</h4>
+                            <p>Eventi aziendali con un tocco originale</p>
+                        </div>
+                        <div class="ginger-feature">
+                            <h4>Menu Unico</h4>
+                            <p>Piatti vegani creativi e instagrammabili</p>
+                        </div>
+                    </div>
+                    <a href="#contatti" class="btn btn-primary">Prenota Ginger</a>
+                </div>
+                <div class="ginger-image">
+                    📷 Foto Ginger Food Truck<br/>
+                    (Sostituire con immagine reale)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="chi-sono">
+        <div class="section-container">
+            <div class="section-header">
+                <p class="section-subtitle">La Mia Storia</p>
+                <h2 class="section-title">Chi Sono</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    📷 Foto Chef Igor<br/>
+                    (Sostituire con foto professionale)
+                </div>
+                <div class="about-text">
+                    <h3>Chef professionista specializzato in cucina vegetale d'autore</h3>
+                    <p>
+                        Con anni di esperienza nel settore della ristorazione, ho scelto di dedicarmi 
+                        completamente alla cucina vegetale gourmet, portando innovazione e tecnica 
+                        ai piatti plant-based.
+                    </p>
+                    <p>
+                        Dalla Toscana all'intero territorio italiano, offro esperienze culinarie 
+                        uniche attraverso private dining, food truck Ginger, corporate catering 
+                        e cooking classes.
+                    </p>
+                    <p>
+                        La mia filosofia: ingredienti di qualità, tecniche professionali e 
+                        presentazioni che sorprendono, sempre nel rispetto dell'ambiente e 
+                        del benessere animale.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label">Anni Esperienza</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Eventi Realizzati</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Plant-Based</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contatti">
+        <div class="section-container">
+            <div class="section-header">
+                <p class="section-subtitle">Parliamone</p>
+                <h2 class="section-title" style="color: var(--gold);">Contattami</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Richiedi un preventivo</h3>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">📱</div>
+                            <div class="contact-details">
+                                <h4>Telefono / WhatsApp</h4>
+                                <a href="tel:+393930430761">+39 393 043 0761</a>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <a href="mailto:i_cau@hotmail.com">i_cau@hotmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">📸</div>
+                            <div class="contact-details">
+                                <h4>Instagram</h4>
+                                <a href="https://instagram.com/igorcau_chef" target="_blank">@igorcau_chef</a>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">🚐</div>
+                            <div class="contact-details">
+                                <h4>Ginger Food Truck</h4>
+                                <a href="https://instagram.com/ginger_foodtruck" target="_blank">@ginger_foodtruck</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <div class="form-group">
+                            <label>Nome *</label>
+                            <input type="text" name="nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <input type="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Servizio di interesse</label>
+                            <select name="servizio">
+                                <option value="">Seleziona...</option>
+                                <option value="leaf-table">Leaf & Table - Private Dining</option>
+                                <option value="ginger">Ginger Food Truck</option>
+                                <option value="corporate">Corporate Catering</option>
+                                <option value="cooking">Cooking Classes</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Messaggio *</label>
+                            <textarea name="messaggio" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">Invia Richiesta</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="https://instagram.com/igorcau_chef" target="_blank">📸</a>
+            <a href="https://instagram.com/ginger_foodtruck" target="_blank">🚐</a>
+            <a href="mailto:i_cau@hotmail.com">✉️</a>
+            <a href="tel:+393930430761">📱</a>
+        </div>
+        <p class="footer-text">
+            © 2026 Igor Cau - Vegan Chef | Partita IVA in fase di apertura<br/>
+            Cucina vegetale d'autore | Trentino & Toscana
+        </p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
